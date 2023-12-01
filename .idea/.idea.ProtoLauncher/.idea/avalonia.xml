@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="App.axaml" value="ProtoLauncher.csproj" />
+        <entry key="Styles/AvaloniaIcons.axaml" value="ProtoLauncher.csproj" />
+        <entry key="Views/Components/Items/SidebarButtonList.axaml" value="ProtoLauncher.csproj" />
+        <entry key="Views/Components/Items/SidebarListItem.axaml" value="ProtoLauncher.csproj" />
+        <entry key="Views/Components/SidebarView.axaml" value="ProtoLauncher.csproj" />
+        <entry key="Views/Interfaces/InstancesInterfaceView.axaml" value="ProtoLauncher.csproj" />
+        <entry key="Views/Interfaces/MainInterface.axaml" value="ProtoLauncher.csproj" />
+        <entry key="Views/Interfaces/MainInterfaceView.axaml" value="ProtoLauncher.csproj" />
+        <entry key="Views/Interfaces/ParentInterface.axaml" value="ProtoLauncher.csproj" />
+        <entry key="Views/MainInterface.axaml" value="ProtoLauncher.csproj" />
+        <entry key="Views/MainWindow.axaml" value="ProtoLauncher.csproj" />
+        <entry key="Views/ParentInterface.axaml" value="ProtoLauncher.csproj" />
+        <entry key="Views/SidebarView.axaml" value="ProtoLauncher.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
