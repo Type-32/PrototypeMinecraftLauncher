@@ -1,0 +1,125 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ProtoLauncher.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ProtoLauncher.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/PML Icon Dark 512 Mac.jpg"
+        Title="ProtoLauncher"
+        ExtendClientAreaToDecorationsHint="True"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent">
+    
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    
+    <Panel>
+        <!-- <ExperimentalAcrylicBorder IsHitTestVisible="False"> -->
+        <!--     <ExperimentalAcrylicBorder.Material> -->
+        <!--         <ExperimentalAcrylicMaterial -->
+        <!--             BackgroundSource="Digger" -->
+        <!--             TintColor="Black" -->
+        <!--             TintOpacity="1" -->
+        <!--             MaterialOpacity="0" /> -->
+        <!--     </ExperimentalAcrylicBorder.Material> -->
+        <!-- </ExperimentalAcrylicBorder> -->
+        
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="0.8"
+                    MaterialOpacity="0.1" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+        
+        <SplitView IsPaneOpen="{Binding IsSidebarExtended}"
+                   OpenPaneLength="{Binding CurrentSidebarWidth}"
+                   CompactPaneLength="{Binding CompactSidebarWidth}"
+                   DisplayMode="CompactInline"
+                   Background="Transparent"
+                   PaneBackground="Transparent">
+            <SplitView.Pane>
+                <StackPanel Orientation="Vertical"
+                            Spacing="5"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Margin="0 10">
+                    <Button CornerRadius="5"
+                            Padding="8 5"
+                            Margin="10 10 10 0"
+                            HorizontalAlignment="Stretch"
+                            Background="Transparent">
+                        <StackPanel VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Stretch"
+                                    Spacing="10"
+                                    Orientation="Horizontal">
+                            <Image Width="26"
+                                   Height="26"
+                                   Source="../Assets/PML Icon Dark 512 Mac.jpg"
+                                   HorizontalAlignment="Left">
+                                <Image.Clip>
+                                    <EllipseGeometry Rect="-13,-13,50,50" />
+                                </Image.Clip>
+                            </Image>
+                            <StackPanel HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Orientation="Vertical">
+                                <TextBlock FontWeight="UltraBold" FontSize="15" VerticalAlignment="Stretch">Type-32</TextBlock>
+                                <TextBlock FontStyle="Normal" TextAlignment="Center" FontSize="10" VerticalAlignment="Stretch">A Minecrafter!</TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Button>
+                    <Separator Background="#6e6e6e"/>
+                    <ListBox Margin="10 0"
+                             Padding="1"
+                             SelectionMode="Single,AlwaysSelected"
+                             ItemsSource="{Binding SidebarItems}"
+                             SelectedItem="{Binding SelectedSidebarItem}"
+                             Background="Transparent"
+                             VerticalAlignment="Stretch">
+                        <ListBox.Styles>
+                            <Style Selector="ListBoxItem">
+                                <Setter Property="Padding" Value="12 8"/>
+                                <Setter Property="CornerRadius" Value="5"/>
+                                <Setter Property="Margin" Value="0 2"/>
+                            </Style>
+                        </ListBox.Styles>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Spacing="15" Orientation="Horizontal">
+                                    <PathIcon Data="{Binding ListItemIcon}" Width="14"/>
+                                    <TextBlock Text="{Binding Label}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button Command="{Binding ToggleSidebar}"
+                            Background="Transparent"
+                            Width="40"
+                            Height="40"
+                            Margin="10 10"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            CornerRadius="8">
+                        <TextBlock Text="{Binding SidebarToggleButtonContent}" TextAlignment="Center"/>
+                    </Button>
+                </StackPanel>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Panel
+                    Background="#1e1e1e">
+                    <Border CornerRadius="5">
+                        <TransitioningContentControl Content="{Binding CurrentPageView}"/>
+                    </Border>
+                </Panel>
+            </SplitView.Content>
+        </SplitView>
+    </Panel>
+</Window>
