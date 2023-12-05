@@ -17,6 +17,7 @@
     </Design.DataContext>
     
     <Panel>
+        <Border Name="TitleBar" Height="30" VerticalAlignment="Top" Background="Transparent" />
         <!-- <ExperimentalAcrylicBorder IsHitTestVisible="False"> -->
         <!--     <ExperimentalAcrylicBorder.Material> -->
         <!--         <ExperimentalAcrylicMaterial -->
@@ -50,8 +51,8 @@
                             VerticalAlignment="Stretch"
                             Margin="0 10">
                     <Button CornerRadius="5"
-                            Padding="8 5"
-                            Margin="10 10 10 0"
+                            Padding="6 3"
+                            Margin="10 20 10 0"
                             HorizontalAlignment="Stretch"
                             Background="Transparent">
                         <StackPanel VerticalAlignment="Stretch"
@@ -63,7 +64,7 @@
                                    Source="../Assets/PML Icon Dark 512 Mac.jpg"
                                    HorizontalAlignment="Left">
                                 <Image.Clip>
-                                    <EllipseGeometry Rect="-13,-13,50,50" />
+                                    <EllipseGeometry RadiusX="15" RadiusY="15" Center="13,13"/>
                                 </Image.Clip>
                             </Image>
                             <StackPanel HorizontalAlignment="Stretch"
@@ -113,12 +114,18 @@
                 </StackPanel>
             </SplitView.Pane>
             <SplitView.Content>
-                <Panel
-                    Background="#1e1e1e">
-                    <Border CornerRadius="5">
-                        <TransitioningContentControl Content="{Binding CurrentPageView}"/>
-                    </Border>
-                </Panel>
+                <Border CornerRadius="10 0 0 0"
+                        ClipToBounds="True"
+                        Margin="0 30 0 0">
+                    <Panel
+                        Background="#1e1e1e"
+                        ClipToBounds="True"
+                        VerticalAlignment="Stretch">
+                        <Border CornerRadius="10 0 0 0" ClipToBounds="True">
+                            <TransitioningContentControl Content="{Binding CurrentPageView}"/>
+                        </Border>
+                    </Panel>
+                </Border>
             </SplitView.Content>
         </SplitView>
     </Panel>
